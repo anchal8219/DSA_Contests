@@ -1,0 +1,16 @@
+# DSA_Contests
+class Solution {
+public:
+    int solve(int n, int a, vector<int> x) {
+        // code here
+        sort(x.begin(),x.end());
+        if(n==2) return abs(a-x[0]) + abs(a-x[1]);
+        int s = abs(a-x[n-1]) + abs(a-x[n-2]);
+        int t = abs(a-x[0]) + abs(a-x[1]);
+        int u = abs(a-x[0]) + abs(a-x[n-1]);
+        int v = abs(a-x[0]) + abs(a-x[n-2]);
+        int w = abs(a-x[n-1]) + abs(a-x[1]);
+        int y = abs(a-x[n-2]) + abs(a-x[0]);
+        return max({s,t,u,v,w,y});
+    }
+};
