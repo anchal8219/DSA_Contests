@@ -1,0 +1,49 @@
+class Solution {
+  public:
+    int minPass(int n, std::vector<int> &h) {
+    int c = -1;
+    bool chk=1;
+    while(chk){
+        chk = 0;
+        for (int i = n - 1; i > 0; i--) {
+            
+            if (h[i] < h[i - 1]) {
+                chk=1;
+                h.erase(h.begin() + i);
+                n--;
+            }
+        }
+        c++;
+    }
+    
+    return c;
+}
+};
+
+
+//or
+
+
+// class Solution {
+//   public:
+//     int minPass(int n, vector<int> &height)
+// {
+//     // code here
+//     int cnt = -1;
+//     bool chk = 1;
+//     while (chk)
+//     {
+//         chk = 0;
+//         for (int i = height.size() - 1; i > 0; i--)
+//         {
+//             if (height[i] < height[i - 1])
+//             {
+//                 chk = 1;
+//                 height.erase(height.begin() + i);
+//             }
+//         }
+//         cnt++;
+//     }
+//     return cnt;
+// }
+// };
