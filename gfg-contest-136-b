@@ -1,0 +1,23 @@
+int minOPs(int n, vector<int> &a)
+    {
+        //Write Code Here
+        int b = (n/2)+1;
+        unordered_map<int,int>mp;
+        for(auto i:a)
+        mp[i]++;
+        
+        priority_queue<pair<int,int>>p;
+        for(auto j:mp){
+            p.push({j.second,j.first});
+        }
+        int c=0,sum=0;
+        // p.pop();
+        while(p.size()>0){
+            pair<int,int> f = p.top();
+            sum += f.first;
+            if(sum<b) c++;
+            else break;
+            p.pop();
+        }
+        return c;
+    }
