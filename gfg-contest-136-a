@@ -1,0 +1,27 @@
+long numOfWays(int n)
+    {
+        //Write Code Here
+        if (n % 2 != 0) {
+            return 0;
+        } else {
+            long half = n / 2;
+            if (half % 2 == 0) {
+                return 6 * (half / 2 - 1);
+            } else {
+                return 6 * (half / 2);
+            }
+        }
+    }
+
+or
+
+long numOfWays(int n)
+    {
+        //Write Code Here
+        if(n<=4 || n%2!=0) return 0;
+        else{
+            int m=(n/4);
+            if(n%4==0) m-=1;
+            return (m)*6;
+        }
+    }
