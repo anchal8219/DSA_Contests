@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int areaOfMaxDiagonal(vector<vector<int>>& d) {
+        int n=d.size();
+        priority_queue<int>p;
+        float maxDiagonal = 0;
+
+        // Find the maximum diagonal length
+        for (int i = 0; i < n; i++) {
+            float sq = sqrt(d[i][0] * d[i][0] + d[i][1] * d[i][1]);
+            maxDiagonal = max(maxDiagonal, sq);
+        }
+        
+        for (int i = 0; i < n; i++) {
+            float sq = sqrt(d[i][0] * d[i][0] + d[i][1] * d[i][1]);
+            if (sq == maxDiagonal) {
+                p.push(d[i][0] * d[i][1]);
+            }
+        }
+        while(p.size()>0){
+            return p.top();
+        }
+        return -1;
+    }
+};
